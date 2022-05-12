@@ -4,3 +4,5 @@ sys.path.append('https://replit.com/@BenjaminBridle1/Game#test.py')
 
 import file
 
+print("RK loves men")
+

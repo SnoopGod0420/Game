@@ -1,12 +1,14 @@
-team = []
-starter = input("Ch, Bul, Sqrt: ")
-if 
-team.append(starter)
-print(team)
+
+def starter():
+  team = []
+  starter = input("Charmander, Bulbasaur, Squirtle: ")
+  if starter =="Charmander":
+    team.append(starter)
+    print(team)
 
 
 
-
+starter()
 
 
 

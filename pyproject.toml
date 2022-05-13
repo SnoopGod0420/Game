@@ -8,6 +8,7 @@ authors = ["Ben, Rk, Ugo"]
 python = ">=3.8.0,<3.9"
 numpy = "^1.22.2"
 xintool = "^0.0.7"
+bcrypt = "^3.2.2"
 
 [tool.poetry.dev-dependencies]
 

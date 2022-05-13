@@ -7,7 +7,7 @@ label.pack()
 global button1, button2, button3, button4, buttonState
 
 buttonState="Outside"
-frame = tk.Frame(master=window, relief=tk.GROOVE, borderwidth=5)
+frame = tk.Frame(master=window, relief=tk.RAISED, borderwidth=5)
 frame.pack(side=tk.BOTTOM)
 button1 = tk.Button(master=frame, text="Gym 1", height=5, width=15)
 button1.pack(side=tk.LEFT)

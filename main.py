@@ -1,39 +1,94 @@
-import random from randint
-import time
-pokedex=("Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidoran","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetch'd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew")
-team=[]
 
-def starter():
-  print(pokedex[1])
-  print("Welcome to Pokemon, to start you will need to choose a starter.")
-  
-  starter = input("Please choose one fo the following Charmander, Bulbasaur or Squirtle: ")
-  if starter =="Charmander":
-    team.append(starter)
-  if starter =="Bulbasaur":
-    team.append(starter)
-  if starter =="Squirtle":
-    team.append(starter)
-    print(team)
+import random, time, math, sys, pathlib, files, bcrypt
 
+def welcome():
+	print("Welcome to your dashboard")
+def gainAccess(Username=None, Password=None):
+    Username = input("Enter your username:")
+    Password = input("Enter your Password:")
+    if not len(Username or Password) < 1:
+        if True:
+            db = open("database.txt", "r")
+            d = []
+            f = []
+            for i in db:
+                a,b = i.split(",")
+                b = b.strip()
+                c = a,b
+                d.append(a)
+                f.append(b)
+                data = dict(zip(d, f))
+            try:
+                if Username in data:
+                    hashed = data[Username].strip('b')
+                    hashed = hashed.replace("'", "")
+                    hashed = hashed.encode('utf-8')
+                    try:
+                        if bcrypt.checkpw(Password.encode(), hashed):
+                        
+                            print("Login success!")
+                            print("Hi", Username)
+                            welcome()
+                        else:
+                            print("Wrong password")
+                        
+                    except:
+                        print("Incorrect passwords or username")
+                else:
+                    print("Username doesn't exist")
+            except:
+                print("Password or username doesn't exist")
+        else:
+            print("Error logging into the system")
+            
+    else:
+        print("Please attempt login again")
+        gainAccess()
+		# b = b.strip()
+# accessDb()
+def register(Username=None, Password1=None, Password2=None):#here the user and pass is wrote into a database so they can make an account
+    Username = input("Enter a username:")
+    Password1 = input("Create password:")
+    Password2 = input("Confirm Password:")
+    db = open("database.txt", "r")
+    d = []
+    for i in db:
+        a,b = i.split(",") #where the is a comma in the the txt file it shows a break between user and pass
+        b = b.strip()
+        c = a,b
+        d.append(a)
+    if not len(Password1)<=8: #Showing I can check if a password is secure enough
+        db = open("database.txt", "r")
+        if not Username ==None:
+            if len(Username) <1:
+                print("Please provide a username")
+                register()
+            elif Username in d:
+                print("Username exists")
+                register()		
+            else:
+                if Password1 == Password2:
+                    Password1 = Password1.encode('utf-8')
+                    Password1 = bcrypt.hashpw(Password1, bcrypt.gensalt())                                       
+                    db = open("database.txt", "a")
+                    db.write(Username+", "+str(Password1)+"\n")
+                    print("User created successfully!")
+                    print("Please login to proceed:")
+                  
+					
+                else:
+                    print("Passwords do not match")
+                    register()
+    else:
+        print("Password too short")#the code will go here if they do not meet first requirement in the if statement 
+def home(option=None): #start of the code
+	print("Welcome, please select an option")
+	option = input("Login | Signup:")
+	if option == "Login":
+		gainAccess()
+	elif option == "Signup":
+		register()
+	else:
+		print("Please enter a valid parameter, this is case-sensitive")
 
-
-
-starter()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+home()

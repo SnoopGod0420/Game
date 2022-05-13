@@ -1,0 +1,1 @@
+#line = random.choice(open('pokemon.txt').readlines()) // this line let me call a random line in a text folder will be used for wild pokemon

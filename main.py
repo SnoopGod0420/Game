@@ -56,31 +56,56 @@ def handle_clickFight(event):
 
 def handle_clickAttackA(event):
   global buttonState, lastState
-  ##Perform attack A
+  print("ATTACK A")##Perform attack A##
   if lastState=="GymFight":
     handle_clickGym("<Button-1>")
   elif lastState=="WildFight":
     handle_clickWild("<Button-1>")
 
-def buttonListner():
-  if buttonState=="Outside":
-    print(buttonState)
-    button1.bind("<Button-1>", handle_clickGym)
+def handle_clickAttackB(event):
+  global buttonState, lastState
+  print("ATTACK B")##Perform attack B##
+  if lastState=="GymFight":
+    handle_clickGym("<Button-1>")
+  elif lastState=="WildFight":
+    handle_clickWild("<Button-1>")
+
+def handle_clickAttackC(event):
+  global buttonState, lastState
+  print("Attack C")##Perform attack C##
+  if lastState=="GymFight":
+    handle_clickGym("<Button-1>")
+  elif lastState=="WildFight":
+    handle_clickWild("<Button-1>")
+
+def handle_clickAttackD(event):
+  global buttonState, lastState
+  print("ATTACK D")##Perform attack D##
+  if lastState=="GymFight":
+    handle_clickGym("<Button-1>")
+  elif lastState=="WildFight":
+    handle_clickWild("<Button-1>")
+
+
+def buttonListner():                                              
+  if buttonState=="Outside":                                        ##Sets state as Outside
+    print(buttonState)                                              ##Button 1 goes to Gym, button 2 goes to Wild
+    button1.bind("<Button-1>", handle_clickGym)                     
     button2.bind("<Button-1>", handle_clickWild)
-  if buttonState=="GymFight":
-    print(buttonState)
-    button1.bind("<Button-1>", handle_clickFight)
+  if buttonState=="GymFight":                                       ##Sets state as Gym
+    print(buttonState)                                              ##Button 1 goes to Fight, button 2 goes to
+    button1.bind("<Button-1>", handle_clickFight)                   ##Potion, button 3 goes to Outside
+    button3.bind("<Button-1>", handle_clickRun)          
+  if buttonState=="WildFight":                                      ##Sets state as Wild
+    print(buttonState)                                              ##Button 1 goes to Fight, button 2 goes to
+    button1.bind("<Button-1>", handle_clickFight)                   ##Outside
     button3.bind("<Button-1>", handle_clickRun)
-  if buttonState=="WildFight":
-    print(buttonState)
-    button1.bind("<Button-1>", handle_clickFight)
-    button3.bind("<Button-1>", handle_clickRun)
-  if buttonState=="Fight":
+  if buttonState=="Fight":                                          ##Sets state as Fight, Attacks then goes back
     print(buttonState)
     button1.bind("<Button-1>",handle_clickAttackA)
-    button2.bind("<Button-1>")
-    button3.bind("<Button-1>")
-    button4.bind("<Button-1>")
+    button2.bind("<Button-1>",handle_clickAttackB)
+    button3.bind("<Button-1>",handle_clickAttackC)
+    button4.bind("<Button-1>",handle_clickAttackD)
     
 buttonListner()
 window.mainloop()

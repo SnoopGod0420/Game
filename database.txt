@@ -1,0 +1,3 @@
+SnoopGod, b'$2b$12$AOVxlrXRAlb/Ku1ATwHQMu93OX99P.QD4eTHylVIQ91XDwCtegLSK'
+rkg04, b'$2b$12$AA.BZv.lppLcRVZEpq4hB.ZDKYoJzC2OmLo3LYrSAerC9kTsRgC9C'
+cheezynob, b'$2b$12$raLGfZnQCrFlIGG6dFGEw.sx5VvyQITpAqnuEFHi7qC8L.VrjRxoi'

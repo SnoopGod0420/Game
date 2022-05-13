@@ -1,4 +1,5 @@
 def wild_fight():
+  pokename = 
   print("A wild", pokename ,"has appeared!")
   time.sleep(1)
   print("What will you do", Username +"!")
@@ -7,7 +8,7 @@ def wild_fight():
     fight()              #functions will be made for F,C and R
   elif fight_choice == 'R':
     home()
-  else fight_choice == 'C':
+  elif fight_choice == 'C':
     catch()
   
     

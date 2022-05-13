@@ -9,5 +9,5 @@ def wild_fight():
     home()
   else fight_choice == 'C':
     catch()
-    
+  
     

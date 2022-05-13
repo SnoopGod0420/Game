@@ -4,7 +4,7 @@ def wild_fight():
   print("What will you do", Username +"!")
   fight_choice = input("Fight(F), Run(R), Catch(C)")
   if fight_choice == 'F':
-    fight()
+    fight()              #functions will be made for F,C and R
   elif fight_choice == 'R':
     home()
   else fight_choice == 'C':

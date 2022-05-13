@@ -27,7 +27,7 @@ def gainAccess(Username=None, Password=None):
                         if bcrypt.checkpw(Password.encode(), hashed):
                         
                             print("Login success!")
-                            print("Hi", Username)
+                            print("Hi", Username+"!")
                             welcome()
                         else:
                             print("Wrong password")
@@ -48,7 +48,7 @@ def gainAccess(Username=None, Password=None):
 # accessDb()
 def register(Username=None, Password1=None, Password2=None):#here the user and pass is wrote into a database so they can make an account
     Username = input("Enter a username:")
-    Password1 = input("Create password:")
+    Password1 = input("Create password (longer than 8 digits):")
     Password2 = input("Confirm Password:")
     db = open("database.txt", "r")
     d = []
